@@ -1,0 +1,152 @@
+Using pre-set license
+Built from '2020.3/staging' branch; Version is '2020.3.4f1 (0abb6314276a) revision 703331'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Home Single Language; OS build 17763.503; Version 1809; 64bit' Language: 'en' Physical Memory: 8078 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2020.3.4f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+F:/Deeper and Deeper
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+50319
+Successfully changed project path to: F:/Deeper and Deeper
+F:/Deeper and Deeper
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 47.22 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.4f1 (0abb6314276a)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.4f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path F:/Deeper and Deeper/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: Intel(R) HD Graphics 510 (ID=0x1902)
+    Vendor:   
+    VRAM:     4039 MB
+    Driver:   25.20.100.6323
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.4f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.4f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.4f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56312
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.4f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.005485 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 43.68 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.315 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.002128 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.42 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.066 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 0.40 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1147 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 59.6 MB.
+System memory in use after: 59.7 MB.
+
+Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 1595.
+Total: 3.502400 ms (FindLiveObjects: 0.211200 ms CreateObjectMapping: 0.073800 ms MarkObjects: 2.980200 ms  DeleteObjects: 0.233700 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/MikadoBold_DEMO 1.otf
+  artifactKey: Guid(cd960a9d4b825644e8dac5fe6dbd2290) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MikadoBold_DEMO 1.otf using Guid(cd960a9d4b825644e8dac5fe6dbd2290) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ac4dc0a716e0ae51b8fc4dcd75c5bb86') in 0.479885 seconds
+  Import took 0.483281 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001975 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.42 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.922 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.41 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1142 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 63.0 MB.
+System memory in use after: 63.0 MB.
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1642.
+Total: 2.470200 ms (FindLiveObjects: 0.142300 ms CreateObjectMapping: 0.059100 ms MarkObjects: 2.213800 ms  DeleteObjects: 0.053500 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 107.722510 seconds.
+  path: Assets/Audio
+  artifactKey: Guid(c04fbbee64649be46998bc4d4e98503b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Audio using Guid(c04fbbee64649be46998bc4d4e98503b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '404c367a6f47f6be0374e93c735d749a') in 0.004569 seconds
+  Import took 0.007333 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.028988 seconds.
+  path: Assets/Audio
+  artifactKey: Guid(c04fbbee64649be46998bc4d4e98503b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Audio using Guid(c04fbbee64649be46998bc4d4e98503b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '404c367a6f47f6be0374e93c735d749a') in 0.003223 seconds
+  Import took 0.006241 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.038912 seconds.
+  path: Assets/Audio/BGM1_Purple Planet Music - Meltwater (1_38) (L) 120bpm.mp3
+  artifactKey: Guid(3d9b0a6e7e2c298449fb9f18f523aa93) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Audio/BGM1_Purple Planet Music - Meltwater (1_38) (L) 120bpm.mp3 using Guid(3d9b0a6e7e2c298449fb9f18f523aa93) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5a2512339fafbb1955fe041fb056c8e3') in 0.234525 seconds
+  Import took 0.314768 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000602 seconds.
+  path: Assets/Audio/SWISH2_mixkit-fast-small-sweep-transition-166.wav
+  artifactKey: Guid(3ece160e06cb0e543a8eaac9abe8cdd7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Audio/SWISH2_mixkit-fast-small-sweep-transition-166.wav using Guid(3ece160e06cb0e543a8eaac9abe8cdd7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd160df034935b2207a72d01ba7d71091') in 0.028613 seconds
+  Import took 0.032285 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000521 seconds.
+  path: Assets/Audio/HIT_mixkit-punch-with-a-hard-whistle-2050.wav
+  artifactKey: Guid(8c74fa6ccc2fa21479cad5e18f1b6350) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Audio/HIT_mixkit-punch-with-a-hard-whistle-2050.wav using Guid(8c74fa6ccc2fa21479cad5e18f1b6350) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ae557df3257b7d6815bffa6ef29bfb0d') in 0.015539 seconds
+  Import took 0.019141 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000330 seconds.
+  path: Assets/Audio/PLAY CLICK_zapsplat_cartoon_bubble_pop_001_40315.mp3
+  artifactKey: Guid(f694a7f7a6004514bbd09ba0ff2f9797) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Audio/PLAY CLICK_zapsplat_cartoon_bubble_pop_001_40315.mp3 using Guid(f694a7f7a6004514bbd09ba0ff2f9797) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4d5e17e52395e57d1656f23a97c87f5f') in 0.028958 seconds
+  Import took 0.031710 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000392 seconds.
+  path: Assets/Audio/DEFEAT_mixkit-wrong-answer-fail-notification-946.wav
+  artifactKey: Guid(bb4f601516232cb44a0f315c66f02848) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Audio/DEFEAT_mixkit-wrong-answer-fail-notification-946.wav using Guid(bb4f601516232cb44a0f315c66f02848) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9a29f10daa62ece8d5fcc70b6ae7342b') in 0.018365 seconds
+  Import took 0.020830 seconds .
+

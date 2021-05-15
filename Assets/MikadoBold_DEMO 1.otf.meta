@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: cd960a9d4b825644e8dac5fe6dbd2290
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Mikado Bold DEMO
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 2833ff587fce51d4bacf2d9887822357, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
