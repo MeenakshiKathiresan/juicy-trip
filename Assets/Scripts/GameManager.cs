@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField]
     Ball player;
-           
+
     float score = 0;
 
     [SerializeField]
@@ -62,10 +62,13 @@ public class GameManager : MonoBehaviour
     EnemyBall currentEnemyBall;
     Collectible currentCollectible;
 
-    
+
 
     bool tappable = true;
-
+    float firstTapTime = 0;
+    [SerializeField]
+    float doubleTapDuration = .15f;
+    bool tappedFirst = false;
 
     public LevelData CurrentLevel
     {
@@ -74,10 +77,10 @@ public class GameManager : MonoBehaviour
             return currentLevel;
         }
         set
-        {       
-           currentLevel = value;
-           playerSpeed = levels[currentLevelCount].playerSpeed;
-           nextLevel = levels[currentLevelCount + 1];
+        {
+            currentLevel = value;
+            playerSpeed = levels[currentLevelCount].playerSpeed;
+            nextLevel = levels[currentLevelCount + 1];
         }
     }
 
@@ -111,8 +114,24 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         bool input = (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0));
-        if (input && gameState == GameState.InGame && tappable  && !EventSystem.current.IsPointerOverGameObject())
+        if (input && gameState == GameState.InGame)
         {
+            if (!tappedFirst)
+            {
+                tappedFirst = true;
+                firstTapTime = Time.time;
+            }
+
+            else
+            {
+                tappedFirst = false;
+                Debug.Log("Double Tap");
+            }
+        }
+
+        if (tappedFirst && Time.time - firstTapTime > doubleTapDuration && tappable)
+        {
+            tappedFirst = false;
             tappable = false;
             StartCoroutine(EnableInput());
 
@@ -124,13 +143,13 @@ public class GameManager : MonoBehaviour
             Rings newRing = PoolManager.Instantiate(CurrentLevel.RingToSpawn, Vector3.zero, Quaternion.identity).GetGameObject().GetComponent<Rings>();
             newRing.myRotateSpeed = Random.Range(nextLevel.minRotateSpeed, nextLevel.maxRotateSpeed);
 
-            currentShark =  PoolManager.Instantiate("Shark", Vector3.zero, Quaternion.identity).GetGameObject().GetComponent<Shark>();
-            float sharkDisplacement = player.currentAngle + CurrentLevel.distanceFromPlayer / 57;        
+            currentShark = PoolManager.Instantiate("Shark", Vector3.zero, Quaternion.identity).GetGameObject().GetComponent<Shark>();
+            float sharkDisplacement = player.currentAngle + CurrentLevel.distanceFromPlayer / 57;
             currentShark.SetPosition(sharkDisplacement);
 
-           // currentCollectible = PoolManager.Instantiate("Collectible", Vector3.zero, Quaternion.identity).GetGameObject().GetComponent<Collectible>();
-           // float displacement = player.currentAngle + CurrentLevel.distanceFromPlayer / 57;
-           // currentCollectible.SetPosition(displacement);
+            // currentCollectible = PoolManager.Instantiate("Collectible", Vector3.zero, Quaternion.identity).GetGameObject().GetComponent<Collectible>();
+            // float displacement = player.currentAngle + CurrentLevel.distanceFromPlayer / 57;
+            // currentCollectible.SetPosition(displacement);
 
 
             if (CurrentLevel.hasEnemy)
@@ -139,20 +158,22 @@ public class GameManager : MonoBehaviour
             }
             newRing.transform.localScale = Vector2.zero;
 
+
             OnInput();
 
         }
 
-        else if ((Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0) ) && (gameState == GameState.GameOver))
+
+        else if ((Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0)) && (gameState == GameState.GameOver))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             ShowMenu();
         }
 
         else if ((Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0)) && (gameState == GameState.Menu))
-		{
+        {
             GameStart();
-		}
+        }
     }
 
     void ClearElements()
@@ -174,10 +195,10 @@ public class GameManager : MonoBehaviour
     }
 
     IEnumerator EnableInput()
-	{
+    {
         yield return new WaitForSeconds(0.5f);
         tappable = true;
-	}
+    }
 
     IEnumerator InstantiateEnemyBall()
     {
@@ -185,18 +206,18 @@ public class GameManager : MonoBehaviour
         if (gameState != GameState.GameOver)
         {
             currentEnemyBall = PoolManager.Instantiate("Enemy", Vector3.zero, Quaternion.identity).GetGameObject().GetComponent<EnemyBall>();
-            currentEnemyBall.currentAngle = player.currentAngle + CurrentLevel.distanceFromPlayer/57;           
+            currentEnemyBall.currentAngle = player.currentAngle + CurrentLevel.distanceFromPlayer / 57;
         }
     }
 
     void ShowMenu()
-	{
+    {
         gameState = GameState.Menu;
         menu.SetActive(true);
     }
 
     void GameStart()
-	{
+    {
         play.Play();
         score = 0;
         scoreText.text = score.ToString();
@@ -238,7 +259,7 @@ public class GameManager : MonoBehaviour
     {
         score++;
         scoreText.text = score.ToString();
-        
+
         if (score % ringsPerLevel == 0)
         {
             LevelUp();
@@ -247,7 +268,7 @@ public class GameManager : MonoBehaviour
     }
 
     void LevelUp()
-    {       
+    {
 
         //loop second last level - so that we have next level data for spawning
         if (currentLevelCount < levels.Count - 2)
@@ -259,7 +280,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public enum GameState { Menu, GameOver, InGame}
+    public enum GameState { Menu, GameOver, InGame }
 
     public delegate void InputHandler();
     public static event InputHandler OnInput;
