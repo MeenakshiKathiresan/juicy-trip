@@ -16,6 +16,8 @@ public class Ball : MonoBehaviour
 
     float attackDistance = 1.5f;
 
+    float forwardAngle = 190;
+
     void Start()
     {
         radius = GameManager.instance.gameRadius;
@@ -29,14 +31,17 @@ public class Ball : MonoBehaviour
             transform.position = new Vector2(Mathf.Cos(currentAngle), Mathf.Sin(currentAngle)) * GameManager.instance.gameRadius;
             transform.eulerAngles = new Vector3(0, 0, Mathf.Rad2Deg * currentAngle - 90);
         }
-        Vector3 forward = transform.TransformDirection(Vector3.left);
+
+        //remove later, only for debugging
+        Vector3 forward = new Vector3(Mathf.Cos(Mathf.Deg2Rad * forwardAngle), Mathf.Sin(Mathf.Deg2Rad * forwardAngle));
+        forward = transform.TransformDirection(forward);
         Debug.DrawRay(transform.position, forward * attackDistance, Color.green);
     }
 
     public void AttackForward()
     {
-        Vector3 forward = transform.TransformDirection(Vector3.left);
-        Debug.DrawRay(transform.position, forward, Color.green);
+        Vector3 forward = new Vector3(Mathf.Cos(Mathf.Deg2Rad * forwardAngle), Mathf.Sin(Mathf.Deg2Rad * forwardAngle));
+        forward = transform.TransformDirection(forward);
         RaycastHit2D hit = Physics2D.Raycast(transform.position , forward * attackDistance);
 
 

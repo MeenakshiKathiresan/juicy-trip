@@ -103,11 +103,12 @@ public class GameManager : MonoBehaviour
     }
 
 
-    float halfWidth = Screen.width / 2;
 
     // Update is called once per frame
     void Update()
     {
+
+        float halfWidth = Screen.width / 2;
         bool input = (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0));
 
         if (input && gameState == GameState.InGame && tappable)
@@ -117,7 +118,7 @@ public class GameManager : MonoBehaviour
             //Right tap to enter ring
             if (Input.mousePosition.x > halfWidth)
             {
-                Debug.Log("right");
+                Debug.Log("right" + Input.mousePosition.x + " "  + halfWidth);
                 ClearElements();
 
                 Rings newRing = PoolManager.Instantiate(CurrentLevel.RingToSpawn, Vector3.zero, Quaternion.identity).GetGameObject().GetComponent<Rings>();
@@ -146,7 +147,7 @@ public class GameManager : MonoBehaviour
             //Left tap to attack
             else
             {
-                Debug.Log("left");
+                Debug.Log("left" + Input.mousePosition.x + " " + halfWidth);
                 player.AttackForward();           
             }             
                       

@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: currentScaleStopIndex
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2792371767725064816, guid: 2e538d09be4e8a34586d2277e2e9bd0b, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3152153603454671328, guid: 2e538d09be4e8a34586d2277e2e9bd0b, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -191,8 +195,16 @@ PrefabInstance:
       value: DoubleHoleEasy (2)
       objectReference: {fileID: 0}
     - target: {fileID: 3152153603454671342, guid: 2e538d09be4e8a34586d2277e2e9bd0b, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3152153603454671342, guid: 2e538d09be4e8a34586d2277e2e9bd0b, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3152153603537100227, guid: 2e538d09be4e8a34586d2277e2e9bd0b, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3152153603537100229, guid: 2e538d09be4e8a34586d2277e2e9bd0b, type: 3}
       propertyPath: m_Sprite
@@ -1108,6 +1120,10 @@ PrefabInstance:
       propertyPath: currentScaleStopIndex
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2792371767725064816, guid: 2e538d09be4e8a34586d2277e2e9bd0b, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3152153603454671328, guid: 2e538d09be4e8a34586d2277e2e9bd0b, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1165,8 +1181,16 @@ PrefabInstance:
       value: DoubleHoleEasy
       objectReference: {fileID: 0}
     - target: {fileID: 3152153603454671342, guid: 2e538d09be4e8a34586d2277e2e9bd0b, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3152153603454671342, guid: 2e538d09be4e8a34586d2277e2e9bd0b, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3152153603537100227, guid: 2e538d09be4e8a34586d2277e2e9bd0b, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3152153603537100229, guid: 2e538d09be4e8a34586d2277e2e9bd0b, type: 3}
       propertyPath: m_Sprite
@@ -1760,8 +1784,16 @@ PrefabInstance:
       value: Ring 2 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 3152153603454671342, guid: a2eb153dfa44ccb48a8d0a4106b26b1d, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3152153603454671342, guid: a2eb153dfa44ccb48a8d0a4106b26b1d, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3152153603537100227, guid: a2eb153dfa44ccb48a8d0a4106b26b1d, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3152153603537100227, guid: a2eb153dfa44ccb48a8d0a4106b26b1d, type: 3}
       propertyPath: m_IsActive
@@ -2256,6 +2288,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 982954978}
     m_Modifications:
+    - target: {fileID: 2792371767725064816, guid: 2e538d09be4e8a34586d2277e2e9bd0b, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3152153603454671328, guid: 2e538d09be4e8a34586d2277e2e9bd0b, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2303,6 +2339,14 @@ PrefabInstance:
     - target: {fileID: 3152153603454671342, guid: 2e538d09be4e8a34586d2277e2e9bd0b, type: 3}
       propertyPath: m_Name
       value: DoubleHoleEasy (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3152153603454671342, guid: 2e538d09be4e8a34586d2277e2e9bd0b, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3152153603537100227, guid: 2e538d09be4e8a34586d2277e2e9bd0b, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3152153603537100229, guid: 2e538d09be4e8a34586d2277e2e9bd0b, type: 3}
       propertyPath: m_Sprite

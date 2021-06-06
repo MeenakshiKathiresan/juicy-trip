@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2725155346600441816}
   - component: {fileID: 8735800584254497126}
   - component: {fileID: 799908410}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: DoubleHoleEasy 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3152153603537100226}
   - component: {fileID: 3152153603537100229}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Path (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +258,7 @@ GameObject:
   - component: {fileID: 8196220650880327529}
   - component: {fileID: 3775012531543818657}
   - component: {fileID: 212424070843478961}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Leaves
   m_TagString: Untagged
   m_Icon: {fileID: 0}
