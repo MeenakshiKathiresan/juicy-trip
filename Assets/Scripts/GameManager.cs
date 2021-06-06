@@ -96,12 +96,10 @@ public class GameManager : MonoBehaviour
     private void OnEnable()
     {
         Ball.OnHealthChange += OnHealthChange;
-        UIManager.OnHammerTap += OnHammerTap;
     }
     private void OnDisable()
     {
         Ball.OnHealthChange -= OnHealthChange;
-        UIManager.OnHammerTap -= OnHammerTap;
     }
 
 
@@ -235,10 +233,6 @@ public class GameManager : MonoBehaviour
 
     }
 
-    void OnHammerTap()
-    {
-        player.AttackForward();
-    }
 
 
     public void GameOver()
