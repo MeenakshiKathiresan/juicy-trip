@@ -40,8 +40,12 @@ public class EnemyBall : MonoBehaviour, IPoolable
 
 	public void PoolDestroy()
 	{
-		GetComponent<SpriteRenderer>().DOFade(0, 0.15f).OnComplete(() => gameObject.SetActive(false));
-		GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<SpriteRenderer>().DOFade(0, 0.15f).OnComplete(() =>
+        {
+            gameObject.SetActive(false);
+            GetComponent<SpriteRenderer>().enabled = false;
+        });
+		
 		
 	}
 

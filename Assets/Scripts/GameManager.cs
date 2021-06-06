@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     Ball player;
 
-    float score = 0;
+    int score = 0;
 
     [SerializeField]
     int ringsPerLevel = 3;
@@ -62,6 +62,7 @@ public class GameManager : MonoBehaviour
     EnemyBall currentEnemyBall;
     Collectible currentCollectible;
 
+    int heartLevel = -1;
 
     bool tappable = true;
 
@@ -124,19 +125,21 @@ public class GameManager : MonoBehaviour
                 Rings newRing = PoolManager.Instantiate(CurrentLevel.RingToSpawn, Vector3.zero, Quaternion.identity).GetGameObject().GetComponent<Rings>();
                 newRing.myRotateSpeed = Random.Range(nextLevel.minRotateSpeed, nextLevel.maxRotateSpeed);
 
-                currentShark = PoolManager.Instantiate("Shark", Vector3.zero, Quaternion.identity).GetGameObject().GetComponent<Shark>();
-                float sharkDisplacement = player.currentAngle + CurrentLevel.distanceFromPlayer / 57;
-                currentShark.SetPosition(sharkDisplacement);
-
-                // currentCollectible = PoolManager.Instantiate("Collectible", Vector3.zero, Quaternion.identity).GetGameObject().GetComponent<Collectible>();
-                // float displacement = player.currentAngle + CurrentLevel.distanceFromPlayer / 57;
-                // currentCollectible.SetPosition(displacement);
-
-
                 if (CurrentLevel.hasEnemy)
                 {
                     StartCoroutine(InstantiateEnemyBall());
                 }
+
+                if (CurrentLevel.hasShark)
+                {
+                    StartCoroutine(InstantiateShark());
+                }
+
+                if(score == heartLevel)
+                {
+                    StartCoroutine(InstantiateHeart());
+                }
+
                 newRing.transform.localScale = Vector2.zero;
 
 
@@ -204,6 +207,27 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    IEnumerator InstantiateShark()
+    {
+        yield return new WaitForSeconds(0.5f);
+        if (gameState != GameState.GameOver)
+        {
+            currentShark = PoolManager.Instantiate("Shark", Vector3.zero, Quaternion.identity).GetGameObject().GetComponent<Shark>();
+            float sharkDisplacement = player.currentAngle + (CurrentLevel.distanceFromPlayer - 40) / 57;
+            currentShark.SetPosition(sharkDisplacement);
+        }
+    }
+    IEnumerator InstantiateHeart()
+    {
+        yield return new WaitForSeconds(0.5f);
+        if (gameState != GameState.GameOver)
+        {
+            currentCollectible = PoolManager.Instantiate("Collectible", Vector3.zero, Quaternion.identity).GetGameObject().GetComponent<Collectible>();
+            float displacement = player.currentAngle + CurrentLevel.distanceFromPlayer - 100 / 57;
+            currentCollectible.SetPosition(displacement);
+        }
+    }
+
     void ShowMenu()
     {
         gameState = GameState.Menu;
@@ -248,6 +272,10 @@ public class GameManager : MonoBehaviour
     public void IncreaseScore()
     {
         score++;
+        if (score % 4 == 0)
+        {
+            heartLevel = score + Random.Range(1, 4);
+        }
         scoreText.text = score.ToString();
 
         if (score % ringsPerLevel == 0)
@@ -283,6 +311,8 @@ public class GameManager : MonoBehaviour
 public class LevelData
 {
     public bool hasEnemy;
+
+    public bool hasShark;
 
     public float distanceFromPlayer;
 
