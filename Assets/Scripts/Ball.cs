@@ -14,6 +14,8 @@ public class Ball : MonoBehaviour
 
     private bool move = true;
 
+    float attackDistance = 1.5f;
+
     void Start()
     {
         radius = GameManager.instance.gameRadius;
@@ -28,19 +30,19 @@ public class Ball : MonoBehaviour
             transform.eulerAngles = new Vector3(0, 0, Mathf.Rad2Deg * currentAngle - 90);
         }
         Vector3 forward = transform.TransformDirection(Vector3.left);
-        Debug.DrawRay(transform.position, forward, Color.green);
+        Debug.DrawRay(transform.position, forward * attackDistance, Color.green);
     }
 
     public void AttackForward()
     {
         Vector3 forward = transform.TransformDirection(Vector3.left);
         Debug.DrawRay(transform.position, forward, Color.green);
-        RaycastHit2D hit = Physics2D.Raycast(transform.position , forward *2);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position , forward * attackDistance);
 
 
         if (hit.collider != null)
         {
-            Debug.Log(hit.collider);
+            Debug.Log("Attacking " + hit.collider);
             if (hit.collider.GetComponent<Shark>())
             {
                 hit.collider.GetComponent<Shark>().PoolDestroy();

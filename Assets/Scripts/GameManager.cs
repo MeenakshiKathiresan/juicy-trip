@@ -63,12 +63,7 @@ public class GameManager : MonoBehaviour
     Collectible currentCollectible;
 
 
-
     bool tappable = true;
-    float firstTapTime = 0;
-    [SerializeField]
-    float doubleTapDuration = .15f;
-    bool tappedFirst = false;
 
     public LevelData CurrentLevel
     {
@@ -110,57 +105,56 @@ public class GameManager : MonoBehaviour
     }
 
 
+    float halfWidth = Screen.width / 2;
+
     // Update is called once per frame
     void Update()
     {
         bool input = (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0));
-        if (input && gameState == GameState.InGame)
-        {
-            if (!tappedFirst)
-            {
-                tappedFirst = true;
-                firstTapTime = Time.time;
-            }
 
-            else
-            {
-                tappedFirst = false;
-                Debug.Log("Double Tap");
-            }
-        }
-
-        if (tappedFirst && Time.time - firstTapTime > doubleTapDuration && tappable)
+        if (input && gameState == GameState.InGame && tappable)
         {
-            tappedFirst = false;
-            tappable = false;
             StartCoroutine(EnableInput());
 
-            //transform.localScale = new Vector2(transform.localScale.x + scaleFactor, transform.localScale.y + scaleFactor);
-            tap.Play();
-
-            ClearElements();
-
-            Rings newRing = PoolManager.Instantiate(CurrentLevel.RingToSpawn, Vector3.zero, Quaternion.identity).GetGameObject().GetComponent<Rings>();
-            newRing.myRotateSpeed = Random.Range(nextLevel.minRotateSpeed, nextLevel.maxRotateSpeed);
-
-            currentShark = PoolManager.Instantiate("Shark", Vector3.zero, Quaternion.identity).GetGameObject().GetComponent<Shark>();
-            float sharkDisplacement = player.currentAngle + CurrentLevel.distanceFromPlayer / 57;
-            currentShark.SetPosition(sharkDisplacement);
-
-            // currentCollectible = PoolManager.Instantiate("Collectible", Vector3.zero, Quaternion.identity).GetGameObject().GetComponent<Collectible>();
-            // float displacement = player.currentAngle + CurrentLevel.distanceFromPlayer / 57;
-            // currentCollectible.SetPosition(displacement);
-
-
-            if (CurrentLevel.hasEnemy)
+            //Right tap to enter ring
+            if (Input.mousePosition.x > halfWidth)
             {
-                StartCoroutine(InstantiateEnemyBall());
+                Debug.Log("right");
+                ClearElements();
+
+                Rings newRing = PoolManager.Instantiate(CurrentLevel.RingToSpawn, Vector3.zero, Quaternion.identity).GetGameObject().GetComponent<Rings>();
+                newRing.myRotateSpeed = Random.Range(nextLevel.minRotateSpeed, nextLevel.maxRotateSpeed);
+
+                currentShark = PoolManager.Instantiate("Shark", Vector3.zero, Quaternion.identity).GetGameObject().GetComponent<Shark>();
+                float sharkDisplacement = player.currentAngle + CurrentLevel.distanceFromPlayer / 57;
+                currentShark.SetPosition(sharkDisplacement);
+
+                // currentCollectible = PoolManager.Instantiate("Collectible", Vector3.zero, Quaternion.identity).GetGameObject().GetComponent<Collectible>();
+                // float displacement = player.currentAngle + CurrentLevel.distanceFromPlayer / 57;
+                // currentCollectible.SetPosition(displacement);
+
+
+                if (CurrentLevel.hasEnemy)
+                {
+                    StartCoroutine(InstantiateEnemyBall());
+                }
+                newRing.transform.localScale = Vector2.zero;
+
+
+                OnInput();
+                tap.Play();
+
             }
-            newRing.transform.localScale = Vector2.zero;
+            //Left tap to attack
+            else
+            {
+                Debug.Log("left");
+                player.AttackForward();           
+            }             
+                      
+                  
 
-
-            OnInput();
-
+                       
         }
 
 
@@ -180,7 +174,7 @@ public class GameManager : MonoBehaviour
     {
         if (currentShark != null)
         {
-            Debug.Log("killing shark from GM");
+          //  Debug.Log("killing shark from GM");
             currentShark.PoolDestroy();
         }
         if (currentEnemyBall != null)
@@ -196,6 +190,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator EnableInput()
     {
+        tappable = false;
         yield return new WaitForSeconds(0.5f);
         tappable = true;
     }
@@ -230,7 +225,7 @@ public class GameManager : MonoBehaviour
     public void OnHealthChange(float change)
     {
         totalLife += change;
-        Debug.Log("Life: " + totalLife);
+      //  Debug.Log("Life: " + totalLife);
         totalLife = Mathf.Clamp(totalLife, 0, 100);
 
         if (totalLife <= 0)
