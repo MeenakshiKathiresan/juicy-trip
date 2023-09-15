@@ -6,23 +6,6 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public Button hammer;
-    int hammerCount = 5;
-
-
-    void Start()
-    {
-        hammer.onClick.AddListener(HammerTap);
-    }
-
-    void HammerTap()
-    {
-        if (OnHammerTap != null && hammerCount > 0)
-        {
-            hammerCount--;
-            OnHammerTap();
-        }
-    }
     
    
 

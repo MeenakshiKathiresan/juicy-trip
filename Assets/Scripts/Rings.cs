@@ -17,7 +17,7 @@ public class Rings : MonoBehaviour, IPoolable
 	SpriteRenderer mySprite;
 
 	[SerializeField]
-	SpriteRenderer fillSprite;
+    SpriteRenderer fillSprite;
 
 	[SerializeField]
 	int currentScaleStopIndex = 0;

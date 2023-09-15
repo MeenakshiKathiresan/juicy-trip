@@ -58,9 +58,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public LevelData currentLevel = new LevelData();
 
-    Shark currentShark;
     EnemyBall currentEnemyBall;
-    Collectible currentCollectible;
 
     
 
@@ -111,7 +109,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         bool input = (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0));
-        if (input && gameState == GameState.InGame && tappable  && !EventSystem.current.IsPointerOverGameObject())
+        if (input && gameState == GameState.InGame && tappable)
         {
             tappable = false;
             StartCoroutine(EnableInput());
@@ -124,9 +122,6 @@ public class GameManager : MonoBehaviour
             Rings newRing = PoolManager.Instantiate(CurrentLevel.RingToSpawn, Vector3.zero, Quaternion.identity).GetGameObject().GetComponent<Rings>();
             newRing.myRotateSpeed = Random.Range(nextLevel.minRotateSpeed, nextLevel.maxRotateSpeed);
 
-            currentShark =  PoolManager.Instantiate("Shark", Vector3.zero, Quaternion.identity).GetGameObject().GetComponent<Shark>();
-            float sharkDisplacement = player.currentAngle + CurrentLevel.distanceFromPlayer / 57;        
-            currentShark.SetPosition(sharkDisplacement);
 
            // currentCollectible = PoolManager.Instantiate("Collectible", Vector3.zero, Quaternion.identity).GetGameObject().GetComponent<Collectible>();
            // float displacement = player.currentAngle + CurrentLevel.distanceFromPlayer / 57;
@@ -143,7 +138,7 @@ public class GameManager : MonoBehaviour
 
         }
 
-        else if ((Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0) ) && (gameState == GameState.GameOver))
+        else if ((Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0)) && (gameState == GameState.GameOver))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             ShowMenu();
@@ -157,21 +152,12 @@ public class GameManager : MonoBehaviour
 
     void ClearElements()
     {
-        if (currentShark != null)
-        {
-            Debug.Log("killing shark from GM");
-            currentShark.PoolDestroy();
-        }
         if (currentEnemyBall != null)
         {
             currentEnemyBall.PoolDestroy();
         }
     }
 
-    public void SharkKilled()
-    {
-        currentShark = null;
-    }
 
     IEnumerator EnableInput()
 	{
@@ -185,7 +171,8 @@ public class GameManager : MonoBehaviour
         if (gameState != GameState.GameOver)
         {
             currentEnemyBall = PoolManager.Instantiate("Enemy", Vector3.zero, Quaternion.identity).GetGameObject().GetComponent<EnemyBall>();
-            currentEnemyBall.currentAngle = player.currentAngle + CurrentLevel.distanceFromPlayer/57;           
+
+            currentEnemyBall.SetCurrentPosition(player.currentAngle + CurrentLevel.distanceFromPlayer / 57);
         }
     }
 

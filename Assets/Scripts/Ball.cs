@@ -37,16 +37,6 @@ public class Ball : MonoBehaviour
         Debug.DrawRay(transform.position, forward, Color.green);
         RaycastHit2D hit = Physics2D.Raycast(transform.position , forward *2);
 
-
-        if (hit.collider != null)
-        {
-            Debug.Log(hit.collider);
-            if (hit.collider.GetComponent<Shark>())
-            {
-                hit.collider.GetComponent<Shark>().PoolDestroy();
-                GameManager.instance.SharkKilled();
-            }
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -56,17 +46,7 @@ public class Ball : MonoBehaviour
             Debug.Log("Leaf: " + collision.gameObject);
             OnHealthChange(-25);
         }
-        else if (collision.GetComponent<Shark>())
-        {
-            Debug.Log("Shark: " + collision.gameObject);
-            OnHealthChange(-25);
-        }
-        else if (collision.GetComponent<Collectible>())
-        {
-            OnHealthChange(25);
-            Collectible collectible = collision.GetComponent<Collectible>();
-            collectible.PoolDestroy();
-        }
+
         else
         {
             speed = 0;

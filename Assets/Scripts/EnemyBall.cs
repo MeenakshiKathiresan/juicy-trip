@@ -33,15 +33,25 @@ public class EnemyBall : MonoBehaviour, IPoolable
 
 	public void PoolInstantiate(Vector3 position, Quaternion rotation)
 	{
-		gameObject.SetActive(true);
+
+		SpriteRenderer sprite = GetComponent<SpriteRenderer>();
+
+        gameObject.SetActive(true);
+
 		radius = GameManager.instance.gameRadius;
-		GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 1);
+		sprite.color = new Color(255, 255, 255, 1);
 	}
+
+	public void SetCurrentPosition(float angle)
+	{
+		currentAngle = angle;
+        transform.position = new Vector2(Mathf.Cos(currentAngle), Mathf.Sin(currentAngle)) * radius;
+    }
 
 	public void PoolDestroy()
 	{
-		GetComponent<SpriteRenderer>().DOFade(0, 0.15f).OnComplete(() => gameObject.SetActive(false));
-		GetComponent<SpriteRenderer>().enabled = false;
+		GetComponent<SpriteRenderer>().DOFade(0, 0.1f).OnComplete(() => gameObject.SetActive(false));
+		//GetComponent<SpriteRenderer>().enabled = false;
 		
 	}
 

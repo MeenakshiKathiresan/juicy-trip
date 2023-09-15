@@ -1,0 +1,18 @@
+﻿<Properties StartupConfiguration="{35A6AAE7-5396-7AE6-EC56-36B2983C59CD}|">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="c0cff4c6-4b1e-45cd-bad2-d8f129152768" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameManager.cs">
+    <Files>
+      <File FileName="Assets/Scripts/GameManager.cs" Line="112" Column="63" />
+      <File FileName="Assets/Scripts/Ball.cs" Line="49" Column="1" />
+      <File FileName="Assets/Scripts/Rings.cs" Line="19" Column="18" />
+      <File FileName="Assets/Scripts/UIManager.cs" />
+      <File FileName="Assets/Scripts/EnemyBall.cs" Line="31" Column="3" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+</Properties>
